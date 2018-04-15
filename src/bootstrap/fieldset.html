@@ -1,4 +1,12 @@
-<fieldset ng-disabled="form.readonly" class="schema-form-fieldset {{::form.htmlClass + ' ' + idClass}}">
-  <legend ng-class="{'sr-only': !showTitle() }">{{ form.title }}</legend>
-  <div class="help-block" ng-show="form.description" ng-bind-html="form.description"></div>
+<fieldset ng-disabled="form.readonly" class="schema-form-fieldset panel-group {{::form.htmlClass + ' ' + idClass}}">
+  <div class="panel panel-default">
+    <div class="panel-heading" style="padding: 10px 10px">
+      <label ng-click="form.collapsed = !form.collapsed" class="control-label {{form.labelHtmlClass}}" ng-class="{'sr-only': !showTitle() }" style="margin-bottom: 0px;">{{ form.title }} <a>{{form.collapsed ? "show" : "hide"}}</a></label>
+      <!--legend ng-class="{'sr-only': !showTitle() }">{{ form.title }}</legend-->
+    </div>
+    <div class="panel-body" ng-hide="form.collapsed" style="padding-bottom: 0px">
+      <div class="help-block" ng-show="form.description" ng-bind-html="form.description"></div>
+      <div sf-field-transclude></div>
+    </div>
+  </div>
 </fieldset>

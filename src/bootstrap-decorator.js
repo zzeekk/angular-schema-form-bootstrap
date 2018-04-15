@@ -29,6 +29,7 @@ function bootstrapDecoratorConfig(
   var base = 'decorators/bootstrap/';
 
   var simpleTransclusion  = sfBuilderProvider.builders.simpleTransclusion;
+  var transclusion  = sfBuilderProvider.builders.transclusion;
   var ngModelOptions      = sfBuilderProvider.builders.ngModelOptions;
   var ngModel             = sfBuilderProvider.builders.ngModel;
   var sfField             = sfBuilderProvider.builders.sfField;
@@ -96,7 +97,7 @@ function bootstrapDecoratorConfig(
     checkboxes: {template: checkboxesTemplate, builder: [ sfField, ngModelOptions, ngModel, array, condition ]},
     conditional: {template: sectionTemplate, builder: [ sfField, simpleTransclusion, condition ]},
     'default': {template: defaultTemplate, builder: defaults},
-    fieldset: {template: fieldsetTemplate, builder: [ sfField, simpleTransclusion, condition ]},
+    fieldset: {template: fieldsetTemplate, builder: [ sfField, transclusion, condition ]},
     help: {template: helpTemplate, builder: defaults},
     number: {template: defaultTemplate, builder: defaults.concat(numeric)},
     password: {template: defaultTemplate, builder: defaults},
